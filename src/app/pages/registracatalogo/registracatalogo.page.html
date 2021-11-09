@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar>           
+      <ion-buttons slot="start">
+        <ion-menu-button menu="main-menu"></ion-menu-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center" size="default">Registro de Catalogo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding">
+  <ion-fab  horizontal="end" vertical="bottom" slot="fixed" >
+    <ion-fab-button (click)="desaparecerAparecer2()" color="danger" >
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">      
+    </ion-fab-list>
+  </ion-fab>
+  <ion-item *ngIf="flag2">
+    <ion-item-divider>
+      <ion-label><h2><strong>Registrar Equipos</strong></h2></ion-label>
+      
+
+    </ion-item-divider>
+  </ion-item>
+  <ion-item *ngIf="flag2">
+    <ion-label position="floating">Nombre de Equipo:</ion-label>
+    <ion-input [(ngModel)]="equipo.nombre" type="text"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="flag2">
+    <ion-label position="floating">Camara Posterior:</ion-label>
+    <ion-input [(ngModel)]="equipo.camaraPost" type="text"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="flag2">
+    <ion-label position="floating">Camara Frontal:</ion-label>
+    <ion-input [(ngModel)]="equipo.camaraFront" type="text"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="flag2">
+    <ion-label position="floating">Memoria RAM:</ion-label>
+    <ion-input [(ngModel)]="equipo.memoriaRam" type="text"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="flag2">
+    <ion-label position="floating">Memoria Interna:</ion-label>
+    <ion-input [(ngModel)]="equipo.memoriaInterna" type="text"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="flag2">
+    <ion-label position="floating">Bateria:</ion-label>
+    <ion-input [(ngModel)]="equipo.bateria" type="text"></ion-input>
+  </ion-item>
+ <ion-item *ngIf="flag2">
+  <ion-item-divider>
+    <ion-label><h2>Precios</h2></ion-label>
+    
+    <ion-button (click)="desaparecerAparecer()" slot="end" color="success" mode="ios">{{flag?'Ver Menos':'Ver Más'}}</ion-button>
+  </ion-item-divider>
+ </ion-item>
+ 
+  <ion-item *ngIf="flag && flag2">
+    <ion-label position="floating">Precio en Plan 55.90:</ion-label>
+    <ion-input [(ngModel)]="equipo.precio.precioPlan55" type="text"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="flag && flag2">
+    <ion-label position="floating">Precio en Plan 49.90:</ion-label>
+    <ion-input [(ngModel)]="equipo.precio.precioPlan49" type="text"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="flag && flag2">
+    <ion-label position="floating">Precio en Plan 39.90:</ion-label>
+    <ion-input [(ngModel)]="equipo.precio.precioPlan39" type="text"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="flag && flag2">
+    <ion-label position="floating">Precio en Plan 29.90:</ion-label>
+    <ion-input [(ngModel)]="equipo.precio.precioPlan29" type="text"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="flag && flag2">
+    <ion-label position="floating">Precio porta/reno:</ion-label>
+    <ion-input [(ngModel)]="equipo.precio.precioPortaRenoPre" type="text"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="flag && flag2">
+    <ion-label position="floating">Precio Linea Nueva:</ion-label>
+    <ion-input [(ngModel)]="equipo.precio.precioLineaNueva" type="text"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="flag2">
+    <ion-label position="floating">Imagen Referencial (URL):</ion-label>
+    <ion-input [(ngModel)]="equipo.imagen" type="text" showCancelButton="focus"></ion-input>
+  </ion-item>
+  <ion-button *ngIf="flag2" color="success" (click)="addEquipo()" expand="block" fill="clear" shape="round">
+    Guardar
+  </ion-button>
+  <ion-button *ngIf="flag2" color="danger"  (click)="limpiar()" expand="block" fill="clear" shape="round">
+    Limpiar
+  </ion-button>
+  <ion-card>
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Registros</ion-label>
+       
+      </ion-list-header>
+      <ion-searchbar animated type="text" placeholder="Buscar" (ionChange)="onSearchChange($event)" [debounce]="250"></ion-searchbar>
+      <ion-list >
+        <ion-list>
+         
+          <ion-item-sliding *ngFor="let item of equipos">
+            <ion-item (click)="goToDetail(item)">
+
+              <ion-avatar slot="end">
+                <img [src]="item.imagen" />
+              </ion-avatar>
+              <ion-label><p>{{item.nombre}}</p></ion-label>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="secondary" (click)=updateEquipo(item.id) ><ion-icon name="create-outline"></ion-icon></ion-item-option>
+              <ion-item-option color="danger" (click)="launchAlert(item.id)" ><ion-icon name="trash-outline"></ion-icon></ion-item-option>
+            </ion-item-options>
+        
+           
+
+          </ion-item-sliding>
+        </ion-list>
+      </ion-list>
+    </ion-list>
+</ion-card>
+<br>
+<br>
+
+</ion-content>

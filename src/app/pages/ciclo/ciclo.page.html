@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>           
+      <ion-buttons slot="start">
+        <ion-menu-button menu="main-menu"></ion-menu-button>
+        
+      </ion-buttons>
+      <ion-title class="ion-text-center" size="default">Ciclos de Facturación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <ion-item >
+    <ion-label>{{flag?'Ciclo de facturación Claro':'Ciclo de facturación Bitel'}}</ion-label>
+    <ion-button [color]="flag?'warning':'danger'" slot="end" (click)="cambiar()" >
+      {{flag?'Ver Bitel':'Ver Claro'}}
+    </ion-button>
+  </ion-item>
+  <ion-item-divider>        
+  </ion-item-divider>
+  <ion-card color="danger" *ngIf="flag==true">   
+    <ion-card-content>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="4">
+            <strong>Fecha de Activación</strong>
+          </ion-col>
+          <ion-col size="4">
+            <strong>Fecha de Entrega</strong>
+          </ion-col>
+          <ion-col size="4">
+            <strong>Fecha de Pago</strong>
+          </ion-col>
+        </ion-row>
+       <br>
+        <ion-row *ngFor="let item of ciclo">
+          <ion-col size="4">
+            <p>{{item.fecha_activacion}}</p>
+          </ion-col>      
+          <ion-col size="4">
+            <p>{{item.fecha_entrega}}</p>
+          </ion-col>
+          <ion-col size="4">
+            <p>{{item.fecha_pago}}</p>
+          </ion-col>
+        </ion-row>
+        
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="flag==false">
+    <ion-img src="./assets/imagenes/ciclobitel.png"></ion-img>
+  </ion-card>
+</ion-content>

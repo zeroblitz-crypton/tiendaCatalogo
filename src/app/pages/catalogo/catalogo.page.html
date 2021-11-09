@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>           
+      <ion-buttons >
+        <ion-menu-button slot="start" menu="main-menu"></ion-menu-button>
+        <ion-title class="ion-text-center" size="default">Catálogo</ion-title>
+        
+                
+      </ion-buttons>
+      
+  </ion-toolbar>
+  <ion-searchbar placeholder="Buscar" animated type="text" (ionChange)="onSearchChange($event)" [debounce]="250"></ion-searchbar>
+</ion-header>
+
+<ion-content>
+
+<ion-list-header>
+  <ion-label>Lista de equipos</ion-label>
+  <ion-button>Ver Todos</ion-button>
+</ion-list-header>
+<ion-list *ngFor="let item of equipos">
+  <ion-item (click)="goToDetail(item)">
+    <ion-avatar slot="end">
+      <img [src]="item.imagen" />
+    </ion-avatar>
+    <ion-label><p>{{item.nombre}}</p></ion-label>
+  </ion-item>
+</ion-list>
+</ion-content>

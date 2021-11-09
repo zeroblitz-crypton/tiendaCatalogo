@@ -1,3 +1,61 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu menuId="main-menu" contentId="main">
+    <ion-header>
+      <ion-toolbar color="success">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item-divider>
+          <ion-label>Para el Público</ion-label>
+        </ion-item-divider>     
+        <ion-menu-toggle>
+          <ion-item routerLink="/inicio">
+            <ion-icon slot="start" name="home"></ion-icon>
+            <ion-label>Inicio</ion-label>
+          </ion-item>
+        </ion-menu-toggle>   
+        <ion-menu-toggle>
+          <ion-item routerLink="/catalogo">
+            <ion-icon slot="start" name="folder"></ion-icon>
+            <ion-label>Catalogo</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/planes">
+            <ion-icon slot="start" name="book-outline"></ion-icon>
+            <ion-label>Planes</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/ciclo">
+            <ion-icon slot="start" name="calendar-outline"></ion-icon>
+            <ion-label>Ciclos de Facturación</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        
+        
+        <ion-item-divider>
+          <ion-label>Solo Personal Autorizado</ion-label>
+        </ion-item-divider> 
+        <ion-menu-toggle>
+          <ion-item (click)="launchAlert(2)">
+            <ion-icon slot="start" name="cube"></ion-icon>
+            <ion-label>Registra en catalogo</ion-label>
+          </ion-item>
+        </ion-menu-toggle>       
+        
+        <ion-menu-toggle>
+          <ion-item (click)="launchAlert(1)">
+            <ion-icon slot="start" name="construct"></ion-icon>
+            <ion-label>Configuración</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

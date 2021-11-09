@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar>           
+      <ion-buttons slot="start">
+        <ion-menu-button menu="main-menu"></ion-menu-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center" size="default">Detalle de Equipo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-slides mode="ios" pager="ios" scrollbar="ios" style="height: 100%;">
+  <ion-slide>
+    <div class="slide">
+      <h1>{{data.nombre}}</h1>
+      <img [src]="data.imagen"/>
+      <p><small>Imagen referencial</small></p>
+      
+    </div>
+  </ion-slide>
+  <ion-slide>
+    <ion-content>
+      <ion-card>
+        <ion-card-header>          
+          <ion-card-title>{{data.nombre}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-icon slot="start" name="hardware-chip-outline"></ion-icon>
+            <ion-label>Memoria Ram</ion-label>
+            <ion-badge slot="end" color="success" mode="ios">{{data.memoriaRam}}</ion-badge>
+          </ion-item>
+          <ion-item>
+            <ion-icon slot="start" name="server-outline"></ion-icon>
+            <ion-label>Memoria Interna</ion-label>
+            <ion-badge slot="end" color="success" mode="ios">{{data.memoriaInterna}}</ion-badge>
+          </ion-item>
+          <ion-item>
+            <ion-icon slot="start" name="battery-full-outline"></ion-icon>
+            <ion-label>Bateria</ion-label>
+            <ion-badge slot="end" color="success" mode="ios">{{data.bateria}}</ion-badge>
+          </ion-item>
+          <ion-item>
+            <ion-icon slot="start" name="camera-outline"></ion-icon>
+            <ion-label>Camara Principal</ion-label>
+            <ion-badge slot="end" color="success" mode="ios">{{data.camaraPost}}</ion-badge>
+          </ion-item>
+          <ion-item>
+            <ion-icon slot="start" name="camera-reverse-outline"></ion-icon>
+            <ion-label>Camara Frontal</ion-label>
+            <ion-badge slot="end" color="success" mode="ios">{{data.camaraFront}}</ion-badge>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Precios validos hasta actualización</ion-card-subtitle>
+          <ion-card-title>Precios por plan</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item-divider>
+            <ion-label>Portabilidad/Renovación Postpago</ion-label>
+          </ion-item-divider>
+            <ion-item>              
+              <ion-label>Plan 55.90</ion-label>
+              <ion-badge slot="end" color="success" mode="ios">S/. {{data.precio.precioPlan55}}</ion-badge>
+            </ion-item>
+            <ion-item>            
+              <ion-label>Plan 49.90</ion-label>
+              <ion-badge slot="end" color="success" mode="ios">S/. {{data.precio.precioPlan49}}</ion-badge>
+            </ion-item>
+            <ion-item>            
+              <ion-label>Plan 39.90</ion-label>
+              <ion-badge slot="end" color="success" mode="ios">S/. {{data.precio.precioPlan39}}</ion-badge>
+            </ion-item>
+            <ion-item>            
+              <ion-label>Plan 29.90</ion-label>
+              <ion-badge slot="end" color="success" mode="ios">S/. {{data.precio.precioPlan29}}</ion-badge>
+            </ion-item>
+            <br>
+            <ion-item-divider>
+              <ion-label>Portabilidad/Renovación Prepago</ion-label>
+            </ion-item-divider>
+            <ion-item>            
+              <ion-label>Prepago</ion-label>
+              <ion-badge slot="end" color="success" mode="ios">S/. {{data.precio.precioPortaRenoPre}}</ion-badge>
+            </ion-item>
+            <br>
+            <ion-item-divider>
+              <ion-label>Linea nueva Prepago</ion-label>
+            </ion-item-divider>
+            <ion-item>            
+              <ion-label>Linea Nueva</ion-label>
+              <ion-badge slot="end" color="success" mode="ios">S/. {{data.precio.precioLineaNueva}}</ion-badge>
+            </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </ion-content>
+    
+  </ion-slide>
+
+ </ion-slides>
+</ion-content>
